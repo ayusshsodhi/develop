@@ -35,6 +35,43 @@ RRRO
 YYRYYRYYRYY
 YYYY
 
+Scenario: Passing only hours and seconds
+When the time is 17:00:38
+Then the clock should look like
+Y
+RRRO
+RROO
+OOOOOOOOOOO
+OOOO
+
+Scenario: Passing only minutes and seconds.
+When the time is 00:59:58
+Then the clock should look like
+Y
+OOOO
+OOOO
+YYRYYRYYRYY
+YYYY
+
+Scenario: Passing only even seconds value
+When the time is 00:00:38
+Then the clock should look like
+Y
+OOOO
+OOOO
+OOOOOOOOOOO
+OOOO
+
+Scenario: Wrong input, passing hours value greater than 24
+When the time is 33:59:59
+Then the clock should look like
+Please enter a valid time input.
+
+Scenario: Wrong input, passing xx in place of minutes
+When the time is 23:xx:59
+Then the clock should look like
+Please enter a valid time input.
+
 Scenario: Midnight
 When the time is 24:00:00
 Then the clock should look like
